@@ -15,10 +15,18 @@ contractor and kills the deal at the exact size where it is most valuable.
 | **Office seat** | Full web app, dispatch, admin, reporting | 2.5× |
 | **Viewer** | Read-only reporting | Free, capped |
 
-### Plan tiers (indicative)
+### Plan tiers
+
+Prices below are the **validated hypothesis** to test with design partners during
+M1–M2 (Q14), not placeholders.
 
 | | **Starter** | **Professional** | **Enterprise** |
 |---|---|---|---|
+| **Monthly (AED)** | **399** | **1,299** | **from 3,500** |
+| **Included seats** | 5 field + 2 office | 15 field + 5 office | Custom |
+| **Extra field seat** | AED 55 | AED 45 | Negotiated |
+| **Extra office seat** | AED 139 | AED 119 | Negotiated |
+| **Annual** | 2 months free | 2 months free | Negotiated |
 | Target | 5–20 staff | 20–150 staff | 150+ |
 | Jobs & dispatch | ✓ | ✓ | ✓ |
 | Dynamic forms | 10 templates | Unlimited | Unlimited |
@@ -37,6 +45,12 @@ contractor and kills the deal at the exact size where it is most valuable.
 Metered above plan allowances: form submissions, storage (photos dominate),
 SMS and WhatsApp messages, API calls. Overages are billed, never used to block
 field work.
+
+Sanity check: a 40-engineer contractor on Professional pays about AED 2,400 per
+month — roughly **USD 16 per engineer per month**. Far below ServiceTitan-class
+pricing, comfortably above cost to serve.
+
+Saudi pricing is near-identical in SAR.
 
 ### Regional pricing reality
 
@@ -104,7 +118,27 @@ trial (14 days, no card) → active → past_due → suspended → cancelled
 - Tenant tax registration number captured at signup and printed on every invoice.
 - Invoices must carry both Arabic and English content to be locally acceptable.
 
-## 6. E-invoicing — a legal blocker, not a feature
+## 6. E-invoicing — deferred out of v1 (ADR-009)
+
+**Decision: no e-invoicing integration ships in v1.** Under ADR-009 the company
+is UAE-registered, where e-invoicing is not yet mandatory at our scale, and
+subscriptions sold to VAT-registered Saudi businesses are a cross-border B2B
+supply settled by the customer under **reverse charge** — so no ZATCA obligation
+attaches to our own subscription invoices.
+
+**This reading must be confirmed with a UAE/KSA tax advisor before the first
+invoice is issued.** It removes an entire workstream from the launch, which makes
+it the highest-value item to verify early rather than assume.
+
+Revisit when any of these becomes true: the UAE mandate reaches our size of
+business; a Saudi entity is registered; or tenant-to-customer invoicing ships in
+Phase 3, at which point tenants need compliant output. The
+`invoices.einvoice_*` fields remain in the data model so this is a feature
+addition, never a migration.
+
+The reference material below applies **when that day comes**.
+
+### Reference: what compliance will require
 
 **Saudi Arabia (ZATCA / Fatoora, Phase 2)** requires invoices as UBL 2.1 XML,
 cryptographically stamped with a certificate obtained through onboarding, a
@@ -112,7 +146,7 @@ QR code with prescribed TLV fields, and clearance (B2B) or reporting (B2C)
 through ZATCA's API. **Egypt (ETA)** imposes a comparable regime with its own
 schema, signing requirements and submission API.
 
-**Recommendation: do not build this in-house.** Use a certified provider or
+**When it becomes necessary, do not build this in-house.** Use a certified provider or
 middleware for both markets. In-house ZATCA Phase 2 compliance is a multi-month
 project with certification, cryptographic hardware or key custody concerns, and
 ongoing regulatory change — entirely disproportionate to the volume of invoices

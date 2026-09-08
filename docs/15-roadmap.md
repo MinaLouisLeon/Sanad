@@ -26,7 +26,15 @@ releases of this size.
 
 **Minimum viable team is 4 engineers.** Below that, the timeline extends
 proportionally rather than compressing — the offline sync engine and the forms
-engine cannot be meaningfully parallelized further.
+engine cannot be meaningfully parallelized further. At two engineers, ADR-004
+should be reopened and the scope narrowed rather than the schedule tripled.
+
+**Hire the mobile/sync engineer first.** It is the longest pole, the hardest role
+to fill, and the M0 spike depends on it. Then the tech lead, then two full-stack.
+
+Staffing is regional (Egypt or Jordan): Arabic-native, timezone-aligned with Gulf
+customers, roughly a third of UAE cost. Indicative all-in budget to GA is
+**USD 165–250k** — see `16-open-questions.md` Q1.
 
 ## 3. Milestones
 
@@ -46,6 +54,13 @@ Two parallel tracks after M0. Weeks are elapsed weeks from project start.
 - Design system: web and native primitives
 - Observability: Sentry, structured logging, tracing
 - **Spike: PowerSync vs custom sync (2 weeks, decision by end of M0)** — ADR-005
+
+**Running in parallel, owned by the product owner, not engineering:**
+- Weeks 1–3: recruit and sign **three design partners** (`18-design-partner-program.md`)
+- Week 4: **dispatcher shadowing day** at each partner — blocking for M2
+- Week 5: **two engineer ride-alongs** at each partner — blocking for M3
+- Company formation, bank account, **Tap Payments application started** (3–6 weeks lead)
+- Arabic terminology glossary reviewed and frozen (`17-terminology-ar.md`)
 
 *Exit criteria:* two tenants exist, cannot see each other, isolation suite green
 in CI, an Arabic RTL page renders correctly, a signed-in user reaches an empty
@@ -118,8 +133,10 @@ cleanly.
 
 ### M6 — Commercialization (weeks 24–29, alongside M5)
 - Billing: plans, seats, subscriptions, trials, dunning
-- Payment gateway adapters (Gulf + Egypt), bank-transfer invoicing
-- VAT handling; e-invoicing provider integration
+- Tap Payments adapter, bank-transfer invoicing
+- VAT handling (no e-invoicing integration — ADR-009)
+- **Read-only customer portal** (ADR-013) — magic-link auth, job status, work
+  report PDFs, asset history, contract visit entitlement
 - **Platform admin console**: tenants, plans, flags, impersonation, health
 - Signup, onboarding wizard, demo data
 - Reporting and dashboards across all modules
@@ -152,13 +169,15 @@ Both are hard to estimate and both are load-bearing.
 
 Agree these **now**, in order, so the decision is not made under pressure:
 
-1. Purchase orders and receiving → post-GA (manual stock receipts remain)
-2. Meetings reduced to scheduling + minutes; action items and toolbox talks
+1. **Read-only customer portal** → post-GA (it sits at M6 precisely so it
+   absorbs schedule pressure ahead of the modules it depends on)
+2. Purchase orders and receiving → post-GA (manual stock receipts remain)
+3. Meetings reduced to scheduling + minutes; action items and toolbox talks
    follow one month later
-3. Stock counts move to a fast-follow release
-4. Serial and batch tracking deferred (quantity tracking ships)
-5. Reporting reduced to a fixed dashboard set; custom reports post-GA
-6. Public API ships read-only first, writes a month later
+4. Stock counts move to a fast-follow release
+5. Serial and batch tracking deferred (quantity tracking ships)
+6. Reporting reduced to a fixed dashboard set; custom reports post-GA
+7. Public API ships read-only first, writes a month later
 
 **Never cut:** tenant isolation, offline sync correctness, form version
 immutability, the audit log, backups, or Arabic RTL quality. Each is either
@@ -166,28 +185,38 @@ unrecoverable later or the reason the product exists.
 
 ## 6. Post-GA sequence
 
-**Phase 3 (months 9–14)** — customer portal; quotes and invoicing; two-way
+**Phase 3 (months 9–14)** — **Urdu and Hindi mobile locales** (ADR-011);
+customer portal beyond read-only (approvals, quote acceptance, self-service
+booking); quotes and invoicing with e-invoicing compliance for tenants; two-way
 Google/Microsoft calendar sync; Zoho and QuickBooks integrations; inbound
 WhatsApp; suggested scheduling; partner/reseller accounts.
 
 **Phase 4 (months 15+)** — SSO/SAML; white-labelling; custom roles; route
 optimization; AI features (voice-to-form dictation first — the highest-value
 single feature for field engineers, and a genuine differentiator); predictive
-maintenance from asset history; French and Turkish locales; in-country
+maintenance from asset history; Malayalam, Tagalog, Bengali, French and Turkish
+locales; in-country
 single-tenant deployments.
 
 ## 7. Pre-development checklist
 
 Before the first line of application code:
 
-- [ ] Answers to the blocking questions in `16-open-questions.md`
-- [ ] Two or three design-partner tenants committed to the pilot
+Blocking questions are answered in `16-open-questions.md`. Four inputs remain
+outstanding and are marked below.
+
+- [ ] **Engineering headcount and start dates confirmed** — if it is 2, reopen ADR-004
+- [ ] **Country of residence confirmed** — determines entity cost and banking friction
+- [ ] **Existing contractor relationships identified** — may collapse partner recruitment to one call
+- [ ] **Tax advisor confirms the ADR-009 reverse-charge reading** before the first invoice
+- [ ] Three design-partner tenants signed (M0 weeks 1–3)
+- [ ] UAE free-zone licence and corporate bank account
+- [ ] Tap Payments and WhatsApp BSP applications **started** — both have
+      multi-week onboarding and are classic launch blockers
+- [ ] Trademark search in UAE and Saudi registries, classes 9 and 42; domain secured
 - [ ] Hosting, database and storage accounts provisioned
-- [ ] Payment gateway and WhatsApp BSP applications **started** — both have
-      multi-week onboarding and are common launch blockers
 - [ ] Domain, DNS and email sending domain configured
 - [ ] Repository, CI, environments and branch protection in place
 - [ ] Design direction agreed for the dispatch board and mobile job flow
-- [ ] Arabic terminology glossary agreed with a native speaker — deciding the
-      Arabic word for "job", "asset" and "dispatch" after 200 screens exist is a
-      painful retrofit
+- [ ] Arabic terminology glossary frozen (`17-terminology-ar.md`)
+- [ ] Domain expert contracted to author the ten starter templates

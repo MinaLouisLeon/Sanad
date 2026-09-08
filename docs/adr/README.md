@@ -14,3 +14,8 @@ changed decision is a new ADR that supersedes the old one.
 | [006](./006-tenant-isolation.md) | Shared database with RLS | Accepted |
 | [007](./007-form-versioning.md) | Immutable published form versions | Accepted |
 | [008](./008-inventory-ledger.md) | Append-only stock movement ledger | Accepted |
+| [009](./009-launch-market-and-entity.md) | UAE entity and launch market, Saudi as revenue target | Accepted |
+| [010](./010-first-vertical.md) | HVAC/MEP contractors as the first vertical | Accepted |
+| [011](./011-field-workforce-languages.md) | Office Arabic-first, field app English-first | Accepted |
+| [012](./012-approval-engine.md) | One small generic approval engine | Accepted |
+| [013](./013-customer-portal-in-v1.md) | Read-only customer portal in v1 | Accepted |

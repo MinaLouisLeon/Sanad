@@ -84,19 +84,25 @@ de-risk, or add evidence to this loop is out of scope for v1.
 - Inventory as a movement ledger with warehouses and van stock, serial/batch tracking
 - Meetings, availability, agendas, minutes, action items, ICS feed
 - Notifications across in-app, email, SMS and WhatsApp
-- Arabic-first UI with English; per-tenant timezone, currency, weekend and holiday calendars
+- Arabic-first web UI; **English-first mobile app** for the predominantly South
+  Asian Gulf field workforce (ADR-011); per-tenant timezone, currency, weekend
+  and holiday calendars
 - Billing with regional gateways, subscriptions and seat management
 - Platform admin console
 - Reporting and dashboards for the core loop
+- **Read-only customer portal** — job status, work report PDFs, asset history,
+  contract visit entitlement (ADR-013)
 
 **Explicitly out of scope for v1** (documented so it stays out)
-- Customer self-service portal → Phase 3
+- Customer portal beyond read-only: approvals, quote acceptance, self-service
+  booking, messaging → Phase 3
 - Quotes and invoicing to end customers → Phase 3
 - Route optimization beyond proximity sorting → Phase 4
 - Two-way Google/Outlook calendar sync → Phase 3
 - SSO/SAML, white-labelling, custom roles → Phase 4 (enterprise)
 - AI features → Phase 4
 - Accounting integrations → Phase 3
+- Urdu and Hindi mobile locales → Phase 3 (ahead of French and Turkish, per ADR-011)
 - French and Turkish locales → Phase 4 (architecture supports them from day one)
 
 ## 7. The asset register — why it is in v1

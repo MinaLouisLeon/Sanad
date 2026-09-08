@@ -73,16 +73,37 @@ nothing to build once status transitions exist.
 
 ## 5. Localization
 
-### Locales
+### Locales — split by audience (ADR-011)
 
-- **Arabic (`ar`) — the default and the design baseline.** Not a translation
-  applied afterwards.
-- English (`en`) — full parity.
-- French (`fr`), Turkish (`tr`) — architecture supports them; deferred to Phase 4.
+The two audiences do not share a language, and treating them as one was an early
+mistake in this plan.
 
-Per-user locale, defaulting to the tenant's. Notifications render in the
-**recipient's** locale, which matters when an Arabic-speaking engineer and an
-English-speaking manager are on the same job.
+| Surface | Primary | Also | Later |
+|---|---|---|---|
+| Web app — office, dispatch, admin, reports | **Arabic** | English | — |
+| Customer-facing PDFs and notifications | **Arabic** | English | — |
+| **Mobile app — field technicians** | **English (simple)** | Arabic | **Urdu, Hindi** (Phase 3); Malayalam, Tagalog, Bengali (Phase 4) |
+
+In the Gulf launch market the field technician workforce is predominantly South
+Asian expatriate and largely does not read Arabic, while the office audience —
+owner, operations manager, dispatcher — and the customer receiving a service
+report are Arabic-speaking. Arabic remains primary for field staff in Egypt,
+Jordan and the Levant.
+
+Consequences:
+- **The mobile app is written in deliberately simple English**: short labels, no
+  idiom, no jargon, icon-supported. It is read by a second-language speaker in
+  bad light under time pressure. This is enforced in code review, not left to
+  taste.
+- Urdu is RTL, so the RTL system serves it directly; Hindi is LTR.
+- Form templates support **per-language label authoring** as a headline feature:
+  a tenant asks the question in English for the technician answering it, and
+  prints it in Arabic on the customer's report.
+- French (`fr`) and Turkish (`tr`) move behind Urdu and Hindi.
+
+Locale is **per user**, defaulting to the tenant's. Notifications render in the
+**recipient's** locale — an Urdu-speaking technician and an Arabic-speaking
+dispatcher work the same job in different languages.
 
 ### RTL
 

@@ -1,6 +1,8 @@
 # ADR-002 — MENA / Gulf market, Arabic-first
 
-**Status:** Accepted · 2026-09-08
+**Status:** Accepted · 2026-09-08 · Refined by ADR-009 (country choice) ·
+**Partially corrected by ADR-011** (the field workforce in the Gulf is largely
+not Arabic-speaking)
 
 ## Context
 The target market determines language, payment gateways, tax and e-invoicing
