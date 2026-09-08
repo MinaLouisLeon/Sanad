@@ -31,18 +31,15 @@ possible.**
 
 Three structural consequences:
 
-### 1. A walking skeleton first
+### 1. Vertical slices, not horizontal layers
 
-Rather than building each module to completion in turn, Phase A builds the
-thinnest possible path through **all four pillars at once** — a job created on
-the web, sent to a phone, completed offline with a form, a part consumed from a
-van, and a meeting recorded. Roughly 330 hours, so about **ten months** at this
-pace.
+Rather than building each module to completion in turn, the work is cut into
+versions that each function end to end. **ADR-016 defines that structure**, and
+`/plans` holds it.
 
-Everything works, badly, at month ten. Every phase after that deepens one pillar
-without breaking the others. The alternative — modules completed one at a time —
-means nothing works end to end until roughly month twenty-two, which on a
-multi-year part-time project is where motivation and context both die.
+The alternative — modules completed one at a time — leaves nothing working end to
+end until very near the finish, which on a long part-time project is where
+motivation and accumulated context both die.
 
 ### 2. Model full, build thin
 
@@ -93,11 +90,11 @@ engineer with a phone in a plant room was never going to use a browser.
 
 ## Consequences
 
-- The first genuinely usable milestone lands around **month 10**, not month 2.
-- The complete thin v1 lands around **month 30–36** at 8 hours per week. At 15
-  hours it is roughly 18 months; at 25 hours, roughly 11.
-- The two levers on that number are hours per week and depth. Breadth is fixed by
-  ADR-004 and is not revisited.
+- The two levers on total effort are **hours per week** and **depth**. Breadth is
+  fixed by ADR-004 and is not revisited.
+- No schedule is published. Work is sequenced, not dated (ADR-016) — under this
+  delivery model a schedule is fiction that decays into guilt, while an ordered
+  sequence with clear exit criteria stays useful indefinitely.
 - Context loss between sessions is the dominant risk on a project at this pace,
   not engineering difficulty. The documentation set is therefore load-bearing:
   every phase ends with its decisions written down.

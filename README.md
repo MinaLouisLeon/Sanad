@@ -9,16 +9,17 @@ Arabic support including RTL.
 
 ## Status
 
-**Specification phase.** No application code exists yet — deliberately. The full
-architecture and product specification lives in [`docs/`](./docs/README.md) and
-is being agreed before implementation begins.
+**Specification and planning complete. No application code yet, by design.**
 
-Start with [`docs/README.md`](./docs/README.md) for the index, or
-[`docs/00-product-overview.md`](./docs/00-product-overview.md) for the product
-itself.
+- **[`/plans`](./plans/README.md)** — the build plan: nine versions from an empty
+  repository to production, each with four phases. Start here to build.
+- **[`/docs`](./docs/README.md)** — the specification: architecture, data model,
+  module specs, security, operations.
+- **[`/docs/adr`](./docs/adr/)** — decisions and the reasoning behind them.
 
-## Open decisions
+Work is sequenced, not scheduled. There are no dates in the plan; a version is
+done when its exit criteria are met.
 
-Blocking questions are tracked in
-[`docs/16-open-questions.md`](./docs/16-open-questions.md). Decisions already
-taken are recorded as [ADRs](./docs/adr/).
+## Next step
+
+[`plans/v0.1-platform-foundation/phase-1-decide.md`](./plans/v0.1-platform-foundation/phase-1-decide.md)

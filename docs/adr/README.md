@@ -21,3 +21,4 @@ changed decision is a new ADR that supersedes the old one.
 | [013](./013-customer-portal-in-v1.md) | Read-only customer portal in v1 | **Superseded by 015** |
 | [014](./014-language-support.md) | English default; English and Arabic only | Accepted |
 | [015](./015-solo-part-time-delivery.md) | Solo part-time delivery; four pillars kept, depth cut | Accepted |
+| [016](./016-versioned-delivery.md) | Versioned delivery; vertical slices, four phases each | Accepted |

@@ -34,7 +34,7 @@ enough to be handed to one person or one team.
 | 12 | [Public API & Integrations](./12-api-and-integrations.md) | REST API, webhooks, third-party integrations |
 | 13 | [Operations & Observability](./13-observability-and-ops.md) | Logging, monitoring, backup, DR, deploys |
 | 14 | [Testing & Quality](./14-testing-and-quality.md) | Test strategy, tenant isolation proofs |
-| 15 | [Delivery Roadmap](./15-roadmap.md) | Milestones, team shape, estimates |
+| 15 | [Delivery Model](./15-roadmap.md) | How delivery is organised and at what depth it ships |
 | 16 | [Decisions on Blocking Questions](./16-open-questions.md) | Answers to every blocking question, with remaining inputs |
 | 17 | [Arabic Terminology](./17-terminology-ar.md) | Glossary draft, frozen before M1 |
 | 18 | [Design Partner Program](./18-design-partner-program.md) | Recruiting and running the three pilot partners |
