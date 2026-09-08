@@ -23,7 +23,7 @@ comparable to SafetyCulture (iAuditor).
 
 | Advantage | Why it matters |
 |---|---|
-| Arabic-first, genuinely RTL | Incumbents offer translated English UIs, not Arabic-native products |
+| Genuine Arabic and RTL support | Incumbents ship machine-translated Arabic with broken RTL layouts, if they ship it at all |
 | MENA working calendars | Fri–Sat weekend, Hijri dates, Ramadan hours, Eid holidays — incumbents get these wrong |
 | Local payment + e-invoicing | ZATCA / ETA compliance is a legal blocker competitors do not solve locally |
 | WhatsApp as a first-class channel | The dominant business communication channel in the region |
@@ -84,9 +84,8 @@ de-risk, or add evidence to this loop is out of scope for v1.
 - Inventory as a movement ledger with warehouses and van stock, serial/batch tracking
 - Meetings, availability, agendas, minutes, action items, ICS feed
 - Notifications across in-app, email, SMS and WhatsApp
-- Arabic-first web UI; **English-first mobile app** for the predominantly South
-  Asian Gulf field workforce (ADR-011); per-tenant timezone, currency, weekend
-  and holiday calendars
+- **English default, with full first-class Arabic including RTL** (ADR-014);
+  per-tenant timezone, currency, weekend and holiday calendars
 - Billing with regional gateways, subscriptions and seat management
 - Platform admin console
 - Reporting and dashboards for the core loop
@@ -102,8 +101,8 @@ de-risk, or add evidence to this loop is out of scope for v1.
 - SSO/SAML, white-labelling, custom roles → Phase 4 (enterprise)
 - AI features → Phase 4
 - Accounting integrations → Phase 3
-- Urdu and Hindi mobile locales → Phase 3 (ahead of French and Turkish, per ADR-011)
-- French and Turkish locales → Phase 4 (architecture supports them from day one)
+- Any locale beyond English and Arabic — removed from the roadmap entirely, not
+  deferred (ADR-014)
 
 ## 7. The asset register — why it is in v1
 

@@ -1,6 +1,14 @@
 # ADR-011 — Office is Arabic-first; the field app is English-first with South Asian languages
 
-**Status:** Accepted · 2026-09-08 · **Corrects an assumption in ADR-002**
+**Status:** **Superseded by [ADR-014](./014-language-support.md)** · 2026-09-08
+
+> Superseded on the same day by a product-owner decision: English is the default
+> language and only English and Arabic are supported. The observation below about
+> the Gulf field workforce still holds and still shapes the mobile app's copy —
+> but the additional locales this ADR scheduled are removed from the roadmap
+> entirely, not deferred. Retained for the reasoning.
+
+**Original status:** Accepted · **Corrects an assumption in ADR-002**
 
 ## Context
 ADR-002 established Arabic as the primary language and design baseline. Applied

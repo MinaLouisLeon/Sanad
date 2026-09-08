@@ -73,42 +73,50 @@ nothing to build once status transitions exist.
 
 ## 5. Localization
 
-### Locales — split by audience (ADR-011)
+### Locales — English default, English and Arabic only (ADR-014)
 
-The two audiences do not share a language, and treating them as one was an early
-mistake in this plan.
+```
+supported locales : en, ar
+default locale    : en
+```
 
-| Surface | Primary | Also | Later |
-|---|---|---|---|
-| Web app — office, dispatch, admin, reports | **Arabic** | English | — |
-| Customer-facing PDFs and notifications | **Arabic** | English | — |
-| **Mobile app — field technicians** | **English (simple)** | Arabic | **Urdu, Hindi** (Phase 3); Malayalam, Tagalog, Bengali (Phase 4) |
+- **English is the default and the source catalog.** Keys are authored in
+  English; it is the fallback for any missing translation on every surface — web,
+  mobile, notifications, PDFs and the admin console.
+- **Arabic is a fully supported, first-class locale**, not a partial translation.
+  Parity is a release gate.
+- **No other locale ships.** Urdu, Hindi, Malayalam, Tagalog, Bengali, French and
+  Turkish are removed from the roadmap, not deferred.
 
-In the Gulf launch market the field technician workforce is predominantly South
-Asian expatriate and largely does not read Arabic, while the office audience —
-owner, operations manager, dispatcher — and the customer receiving a service
-report are Arabic-speaking. Arabic remains primary for field staff in Egypt,
-Jordan and the Levant.
+**Resolution order:** the user's explicit choice → the tenant's default locale
+(set at signup, changeable by an admin) → `en`.
 
-Consequences:
+Locale is **per user**. Notifications render in the **recipient's** locale — an
+Arabic-speaking dispatcher and an English-speaking technician work the same job
+in their own languages.
+
+Two notes that survive the simplification:
+
 - **The mobile app is written in deliberately simple English**: short labels, no
-  idiom, no jargon, icon-supported. It is read by a second-language speaker in
-  bad light under time pressure. This is enforced in code review, not left to
-  taste.
-- Urdu is RTL, so the RTL system serves it directly; Hindi is LTR.
-- Form templates support **per-language label authoring** as a headline feature:
-  a tenant asks the question in English for the technician answering it, and
-  prints it in Arabic on the customer's report.
-- French (`fr`) and Turkish (`tr`) move behind Urdu and Hindi.
-
-Locale is **per user**, defaulting to the tenant's. Notifications render in the
-**recipient's** locale — an Urdu-speaking technician and an Arabic-speaking
-dispatcher work the same job in different languages.
+  idiom, no jargon, icon-supported. In the Gulf the field technician workforce is
+  largely expatriate and reading a second language, in bad light, under time
+  pressure. This is a copywriting constraint enforced in review, and it comes
+  from the audience rather than from the locale policy.
+- Form templates keep **bilingual label authoring**: a tenant may ask a question
+  in English for the technician answering it and print it in Arabic on the
+  customer's report.
 
 ### RTL
 
+English being the default makes RTL the path nobody walks by accident, so the
+following are **not optional** — they are what stops Arabic from silently rotting
+into the locale that only breaks in front of customers (ADR-014).
+
 - CSS **logical properties** everywhere (`margin-inline-start`, not
   `margin-left`). This is a code-review rule, enforced by lint where possible.
+- **Every screen is reviewed in Arabic RTL before merge**, not before release.
+- A CI check fails the build on any user-facing key present in `en` and missing
+  in `ar`.
 - `dir` set from the locale at the document root; Tailwind `rtl:` variants only
   for genuine exceptions.
 - Icons with direction (arrows, chevrons, progress) mirror; icons with meaning
@@ -131,6 +139,10 @@ dispatcher work the same job in different languages.
   source of broken output.
 
 ### Numbers, dates and calendars
+
+These follow the tenant's **country**, not its language, and are therefore
+unaffected by the locale policy. An English-language tenant in Riyadh still gets
+a Friday–Saturday weekend and Hijri dates.
 
 - Numerals: **Western digits (0–9) by default**, with Arabic-Indic (٠–٩) as a
   tenant option. Gulf business contexts overwhelmingly use Western digits;

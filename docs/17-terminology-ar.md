@@ -3,6 +3,12 @@
 **Status:** Draft for native review. Owner: product owner. **Frozen before the
 first user-facing screen in M1.**
 
+Under ADR-014, English is the default locale and the source catalog; Arabic is
+the single translation target. That makes this glossary the **complete
+specification of the Arabic product vocabulary** — there is no second translation
+to average against. A wrong word for "dispatch" is wrong regardless of which
+locale is the default, and with only two locales it is also highly visible.
+
 This is a starting point produced to accelerate the review, not an authority. A
 native-Arabic **operations person from a design partner** must validate it — a
 professional translator will render "dispatch" and "van stock" correctly as

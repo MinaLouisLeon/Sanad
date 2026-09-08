@@ -4,7 +4,8 @@ A multi-tenant SaaS platform for field service management: work orders and
 dispatch, an offline-first mobile app for field engineers, admin-authored dynamic
 forms, inventory with van stock, and meeting scheduling.
 
-Arabic-first, built for the MENA / Gulf market.
+Built for the MENA / Gulf market. English by default, with full first-class
+Arabic support including RTL.
 
 ## Status
 

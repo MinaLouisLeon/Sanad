@@ -3,8 +3,8 @@
 ## 1. The constraint
 
 The scope decision (ADR-004) is **all four pillars at launch**: forms, field ops,
-inventory and meetings, with an offline mobile app, Arabic-first UI, and regional
-billing.
+inventory and meetings, with an offline mobile app, English and Arabic locales
+with full RTL, and regional billing.
 
 This is a large first release. The plan below manages that risk in two ways:
 every milestone ends in **working, demonstrable software** rather than a
@@ -50,7 +50,8 @@ Two parallel tracks after M0. Weeks are elapsed weeks from project start.
 - Auth: email/password, phone OTP, sessions, MFA scaffolding
 - RBAC: roles, permissions, scopes
 - Audit log
-- i18n foundation: Arabic-first, RTL layout system, typography, formatters
+- i18n foundation: English default catalog, Arabic locale, RTL layout system,
+  typography, formatters, and the `en`/`ar` parity check in CI (ADR-014)
 - Design system: web and native primitives
 - Observability: Sentry, structured logging, tracing
 - **Spike: PowerSync vs custom sync (2 weeks, decision by end of M0)** — ADR-005
@@ -185,8 +186,7 @@ unrecoverable later or the reason the product exists.
 
 ## 6. Post-GA sequence
 
-**Phase 3 (months 9–14)** — **Urdu and Hindi mobile locales** (ADR-011);
-customer portal beyond read-only (approvals, quote acceptance, self-service
+**Phase 3 (months 9–14)** — customer portal beyond read-only (approvals, quote acceptance, self-service
 booking); quotes and invoicing with e-invoicing compliance for tenants; two-way
 Google/Microsoft calendar sync; Zoho and QuickBooks integrations; inbound
 WhatsApp; suggested scheduling; partner/reseller accounts.
@@ -194,8 +194,7 @@ WhatsApp; suggested scheduling; partner/reseller accounts.
 **Phase 4 (months 15+)** — SSO/SAML; white-labelling; custom roles; route
 optimization; AI features (voice-to-form dictation first — the highest-value
 single feature for field engineers, and a genuine differentiator); predictive
-maintenance from asset history; Malayalam, Tagalog, Bengali, French and Turkish
-locales; in-country
+maintenance from asset history; in-country
 single-tenant deployments.
 
 ## 7. Pre-development checklist

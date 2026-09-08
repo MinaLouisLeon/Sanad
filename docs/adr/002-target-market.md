@@ -1,20 +1,25 @@
-# ADR-002 — MENA / Gulf market, Arabic-first
+# ADR-002 — MENA / Gulf market
 
 **Status:** Accepted · 2026-09-08 · Refined by ADR-009 (country choice) ·
-**Partially corrected by ADR-011** (the field workforce in the Gulf is largely
-not Arabic-speaking)
+**Language policy superseded by ADR-014** — English is the default locale and
+only English and Arabic are supported. The market decision below stands
+unchanged; only the language ordering in it does not.
 
 ## Context
 The target market determines language, payment gateways, tax and e-invoicing
 obligations, notification channels, calendars and pricing.
 
 ## Decision
-Build for the MENA / Gulf market with Arabic as the primary language and design
-baseline, English at full parity.
+Build for the MENA / Gulf market, with full Arabic support including RTL.
+
+*(Language ordering superseded by ADR-014: English is the default locale, Arabic
+is a fully supported first-class locale, and no other locale ships.)*
 
 ## Consequences
 - RTL is a first-class design constraint, not a translation layer. The dispatch
-  board timeline, charts and drag interactions all need RTL treatment.
+  board timeline, charts and drag interactions all need RTL treatment. ADR-014
+  keeps this requirement while flipping the default locale, and lists the
+  controls that stop RTL quality from rotting.
 - Fri–Sat weekends, Hijri dates, Ramadan hours and Eid holidays are core
   scheduling inputs (`11-notifications-and-i18n.md` §5).
 - WhatsApp is a primary notification channel, requiring a BSP and pre-approved

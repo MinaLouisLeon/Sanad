@@ -7,7 +7,8 @@ Sanad is a multi-tenant SaaS platform for companies that manage field operations
 work orders and dispatch, an offline-capable mobile app for field engineers,
 admin-authored dynamic forms, inventory with van stock, and meeting scheduling.
 
-Primary market is MENA / Gulf, Arabic-first with full RTL support.
+Primary market is MENA / Gulf. English is the default language, with full
+first-class Arabic support including RTL. No other locales.
 
 ---
 
