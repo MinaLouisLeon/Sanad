@@ -1,6 +1,8 @@
 # ADR-004 — All four pillars at launch
 
-**Status:** Accepted · 2026-09-08
+**Status:** Accepted · 2026-09-08 · **Reaffirmed twice** · Depth amended by
+ADR-015 (all four pillars kept; the depth of each cut to fit a solo part-time
+delivery model)
 
 ## Context
 The four requested pillars are dynamic forms, field task management, inventory

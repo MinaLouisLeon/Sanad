@@ -7,9 +7,30 @@ owner holds; each states the assumption being used until it is confirmed.
 Legal, tax and corporate-structure reasoning below is **not professional advice**
 and must be confirmed with a regional advisor before money is spent.
 
+> **Answered since this document was written.** The team is **one part-time
+> developer, under 10 hours per week**, with no deadline and no customer waiting.
+> Q1, Q2, Q9, Q12, Q13, Q14 and Q15 are revised in place below; ADR-015 records
+> what that changes. Q3, Q4, Q5, Q6, Q7, Q8, Q10, Q11 and Q16–Q20 stand as
+> written.
+
 ---
 
-## Q1 — Team and budget → **4 engineers, hired regionally**
+## Q1 — Team and budget → **ANSWERED: solo, part-time, under 10 hrs/week**
+
+**Actual answer.** One developer — the product owner — working under 10 hours per
+week with Claude assistance, no deadline, no external funding, and no customer
+waiting. Budget is effectively zero beyond hosting.
+
+This invalidates everything below, which assumed a funded team. See **ADR-015**
+and the rewritten `15-roadmap.md` for the plan that replaces it. The headline:
+four pillars are kept, the depth of each is cut, a walking skeleton through all
+four lands around month 10, and the complete thin v1 lands around month 30–36 at
+this pace.
+
+The table below is retained only because it shows what additional hours buy.
+
+<details>
+<summary>Superseded: the funded-team plan</summary>
 
 **Decision.** The 8-month plan assumes 4 engineers, 0.5 designer, 0.5 QA,
 0.25 DevOps. Hire in Egypt or Jordan, with the lead wherever the founder is.
@@ -44,12 +65,25 @@ scope lands near 70–95k.
 pole, the hardest role to fill, and the M0 spike depends on it. Then the tech
 lead, then two full-stack.
 
-**NEEDS YOUR INPUT:** actual headcount and start dates. If the answer is 2,
-ADR-004 should be reopened before M0 rather than discovered in month nine.
+</details>
 
 ---
 
-## Q2 — Design partners → **Three, signed before M1 ends**
+## Q2 — Design partners → **ANSWERED: deferred, build first**
+
+**Actual answer.** The product owner has chosen to build first and find users
+later, twice. That is the decision and it is not revisited.
+
+**Adaptation** (`15-roadmap.md` §2): the phases are ordered so the surfaces that
+cannot be designed without watching real users — the dispatch board, scheduling
+intelligence, SLA logic — are built **last**, in Phase C and beyond. The parts
+that are identical in every field-service business come first. This makes
+building without users as cheap as it can be.
+
+`18-design-partner-program.md` is retained in full for when this changes.
+
+<details>
+<summary>Superseded: the recruit-first plan</summary>
 
 **Decision.** Non-negotiable. Three committed partners, recruited during M0 while
 foundations are built. Assume none exist today and run the plan in
@@ -68,8 +102,7 @@ A prospect who will not give up a dispatcher day is not a design partner.
 The dispatcher day and ride-alongs must happen **before M2 begins** — the
 dispatch board cannot be designed from a specification.
 
-**NEEDS YOUR INPUT:** existing relationships. If you already have two or three
-contractors who trust you, this collapses from three weeks to one call.
+</details>
 
 ---
 
@@ -129,7 +162,17 @@ default templates, the demo data, and the words on the website.
 
 ---
 
-## Q5 — Customer portal → **Yes, read-only, in v1**
+## Q5 — Customer portal → **REVERSED: out of v1 entirely (ADR-015)**
+
+A solo developer at this pace cannot carry a second externally-facing surface and
+the penetration-test obligation attached to it. The product reasoning below is
+unchanged and still correct — it remains the strongest differentiator identified
+in this plan — but it is deferred until after v1 on capacity grounds.
+
+<details>
+<summary>Superseded: portal in v1</summary>
+
+### Original decision — read-only, in v1
 
 **Decision reversed from the previous revision.** A minimal read-only portal
 ships in v1, built in M6, and it is the first item on the cut line.
@@ -148,6 +191,8 @@ tenant's system. It reuses data that already exists.
 
 **Risk accepted:** it is a new externally-facing attack surface and must be in
 scope for the penetration test.
+
+</details>
 
 ---
 
@@ -192,9 +237,14 @@ engine consumes a quarter.
 
 ---
 
-## Q9 — PowerSync commercially → **Accept the vendor cost if the spike passes**
+## Q9 — PowerSync commercially → **RESOLVED: adopt directly, spike cancelled (ADR-015)**
 
-**Decision.** Yes. Even at a four-figure monthly fee, 6–10 engineering weeks at
+At a solo part-time pace, a two-week spike that might end in hand-writing a sync
+engine is a risk the project cannot absorb. PowerSync is adopted without
+evaluating the alternative. The two conditions below still apply as design
+constraints.
+
+**Original reasoning.** Yes. Even at a four-figure monthly fee, 6–10 engineering weeks at
 regional rates is USD 25–50k of build plus permanent maintenance and an entire
 class of bugs that surface only in the field.
 
@@ -236,7 +286,14 @@ tenant opt-in and a staff-notification obligation.
 
 ---
 
-## Q12 — Payment gateway → **Tap Payments, plus manual bank transfer**
+## Q12 — Payment gateway → **DEFERRED: not needed until there is someone to bill**
+
+Billing is out of v1 entirely (ADR-015); early customers, if any, are invoiced
+manually. Start the gateway application about a month before the first paying
+customer — it needs a trade licence and takes 3–6 weeks. The choice below stands
+for when that day comes.
+
+### For when billing ships
 
 **Decision.** Tap covers UAE cards, Saudi **mada** and Kuwaiti KNET through one
 integration, which matches the Q3 sequence exactly. Stripe is added later for
@@ -297,7 +354,18 @@ in M1–M2, not at M6.
 
 ---
 
-## Q15 — Legal entity → **UAE free zone**
+## Q15 — Legal entity → **NOT NEEDED YET**
+
+A registered company — trade licence plus business bank account — is required to
+legally take money, sign customer contracts, obtain a payment gateway, and issue
+tax invoices your customers can claim. It is **not** required to write code, run
+a demo, or talk to prospects.
+
+**So: not now.** Roughly a month before the first paying customer. It carries an
+annual cost and accounting obligations from the day it exists, so registering
+early buys nothing and costs real money.
+
+### For when that day comes
 
 **Decision.** IFZA, Meydan or DMCC. Indicatively AED 12,500–25,000 per year for
 licence and visa allocation, set up remotely in days.
@@ -378,14 +446,17 @@ technician will spot as wrong in ten seconds.
 
 ---
 
-## Remaining inputs needed before M0 starts
+## Remaining inputs
 
-1. **Engineering headcount and start dates** (Q1) — if it is 2, reopen ADR-004.
-2. **Your country of residence** (Q3, Q15) — determines entity cost and banking.
-3. **Existing contractor relationships** (Q2) — collapses design-partner
-   recruitment from three weeks to one call.
-4. **Confirmation from a tax advisor** that the Q13 reverse-charge reading is
-   correct.
+**None blocking.** Every question that gated the start of work is answered.
+Phase A in `15-roadmap.md` can begin.
 
-Everything else is decided and recorded. The pre-development checklist in
-`15-roadmap.md` §7 is now unblocked apart from these four.
+Three items become relevant later, none of them now:
+
+1. **Country of residence and registration** (Q15) — about a month before the
+   first paying customer, not before.
+2. **Tax advisor confirmation** of the Q13 reverse-charge reading — before the
+   first invoice is issued.
+3. **Trademark search** (Q16) — before any public launch or brand spend. "Sanad"
+   is used by several established regional companies, so this is worth two hours
+   before the name appears anywhere public.

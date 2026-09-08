@@ -1,6 +1,15 @@
 # ADR-005 — Offline synchronization approach
 
-**Status:** Proposed — to be resolved by a two-week spike in M0
+**Status:** **Resolved by [ADR-015](./015-solo-part-time-delivery.md)** — PowerSync
+adopted directly; the spike is cancelled.
+
+> A two-week spike that might end in hand-writing a sync engine is a risk a
+> solo part-time project cannot absorb. Option A is taken on the reasoning below
+> without evaluating Option B. The consequences at the end of this ADR — UUIDv7
+> ids, idempotency keys, the conflict matrix, the airplane-mode release gate —
+> apply unchanged.
+>
+> **Original status:** Proposed — to be resolved by a two-week spike in M0
 
 ## Context
 Bidirectional sync between Postgres and mobile SQLite is the highest-risk

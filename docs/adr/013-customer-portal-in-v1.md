@@ -1,6 +1,14 @@
 # ADR-013 — A read-only customer portal ships in v1
 
-**Status:** Accepted · 2026-09-08 · Supersedes the Phase 3 deferral in `00-product-overview.md` §6
+**Status:** **Superseded by [ADR-015](./015-solo-part-time-delivery.md)** · 2026-09-08
+
+> Reversed the same day on delivery-model grounds, not product grounds. The
+> reasoning below still holds — the portal remains the strongest differentiator
+> identified in this plan — but a solo developer at under 10 hours per week
+> cannot carry a second externally-facing surface and the penetration-test
+> obligation that comes with it. Deferred until after v1.
+>
+> **Original status:** Accepted · Superseded the Phase 3 deferral in `00-product-overview.md` §6
 
 ## Context
 The customer portal was deferred to Phase 3 as a scope-control measure, while

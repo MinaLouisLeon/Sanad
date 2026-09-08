@@ -89,12 +89,15 @@ de-risk, or add evidence to this loop is out of scope for v1.
 - Billing with regional gateways, subscriptions and seat management
 - Platform admin console
 - Reporting and dashboards for the core loop
-- **Read-only customer portal** — job status, work report PDFs, asset history,
-  contract visit entitlement (ADR-013)
+> **Depth note (ADR-015).** All four pillars ship, but each at reduced depth to
+> fit a solo part-time delivery model. The per-pillar in/out table in ADR-015 is
+> authoritative for v1; the module documents describe the full target state.
 
 **Explicitly out of scope for v1** (documented so it stays out)
-- Customer portal beyond read-only: approvals, quote acceptance, self-service
-  booking, messaging → Phase 3
+- Customer portal in any form — strongest differentiator identified, deferred on
+  delivery-capacity grounds (ADR-015 supersedes ADR-013)
+- Billing and subscriptions — invoice manually until there is someone to invoice
+- Public API, webhooks, platform admin console, WhatsApp and SMS channels
 - Quotes and invoicing to end customers → Phase 3
 - Route optimization beyond proximity sorting → Phase 4
 - Two-way Google/Outlook calendar sync → Phase 3

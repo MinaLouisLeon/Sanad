@@ -1,8 +1,15 @@
 # 18 — Design Partner Program
 
-Three committed partners, recruited during M0, signed before M1 ends. This runs
-in parallel with foundation engineering and is owned by the product owner, not
-by an engineer.
+> **Status: deferred by product-owner decision.** The choice is to build first
+> and find users later. This document is retained in full for when that changes —
+> it is the fastest way to recruit partners at that point.
+>
+> The adaptation, recorded in `15-roadmap.md` §2: the phases are ordered so the
+> surfaces that genuinely cannot be designed without watching real users — the
+> dispatch board above all — are built **last**. That way building without users
+> costs as little as it can.
+
+Three committed partners. Owned by the product owner, not by an engineer.
 
 ## 1. Why this gates the build
 
